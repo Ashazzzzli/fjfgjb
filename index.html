@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You Varisha</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url('https://4kwallpapers.com/images/walls/thumbs_3t/9983.jpg');
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100vw;
+            font-family: Arial, sans-serif;
+        }
+
+        .husband-message {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 50px;
+            font-weight: bold;
+            color: #ff007f;
+            -webkit-text-stroke: 2px black;
+            text-stroke: 2px black;
+            z-index: 2;
+        }
+
+        .message, .message-2, .kiss {
+            position: absolute;
+            font-size: 30px;
+            font-weight: bold;
+            color: black;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 1);
+            opacity: 0;
+            animation: appearAndDisappear 1.5s forwards;
+            z-index: 1;
+        }
+
+        .message-2 {
+            color: black;
+            text-shadow: 3px 3px 6px rgba(255, 105, 180, 1);
+        }
+
+        .kiss {
+            color: red;
+            font-size: 25px;
+            text-shadow: 2px 2px 4px rgba(255, 20, 20, 0.8);
+        }
+
+        @keyframes appearAndDisappear {
+            0% {
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+        }
+
+        .question-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.85); /* Reduced by 15% */
+            text-align: center;
+            background-image: url('https://i.pinimg.com/originals/7d/68/a4/7d68a425553c15f0edbddbc163d9c462.jpg');
+            background-size: cover;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: black;
+            font-weight: bold;
+            font-size: 36px;
+            z-index: 10;
+            width: 120%; /* Increased by 20% */
+            height: 90%; /* Reduced by 10% */
+        }
+
+        .answer-button {
+            margin: 10px;
+            padding: 27px 63px;
+            font-size: 37px;
+            font-weight: bold;
+            color: #ffffff;
+            background-image: url('https://kuromi.co.uk/wp-content/uploads/2024/05/kuromi-wallpaper-aesthetic-1024x640.jpg');
+            background-size: 100% 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            color: black;
+            text-shadow: 0 0 10px pink;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            font-size: 36px;
+            font-weight: bold;
+            color: inherit;
+            text-shadow: none;
+        }
+
+        .wrong { color: red; }
+        .correct { color: green; }
+
+        /* Minimized button container style */
+        .minimized-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fff;
+            width: 50px;
+            height: 10px;
+            border: 1px solid #000;
+            font-size: 10px;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 5px;
+            line-height: 10px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        /* X button in the top-right corner */
+        .close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 20px;
+            color: white;
+            background-color: red;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Husband's Message -->
+    <div class="husband-message">From your husband, Ashaz</div>
+
+    <!-- Question container with buttons -->
+    <div class="question-container" id="question-container">
+        <button class="close-button" onclick="minimizeContainer()">X</button>
+        <p>Do you love me more?</p>
+        <button class="answer-button" onclick="showFeedback('wrong')">Yes</button>
+        <button class="answer-button" onclick="showFeedback('correct')">No</button>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <!-- Minimized container -->
+    <div class="minimized-container" id="minimized-container" onclick="restoreContainer()">Do you love me?</div>
+
+    <script>
+        function showFeedback(answer) {
+            const feedbackDiv = document.getElementById('feedback');
+            feedbackDiv.style.opacity = "1";
+            if (answer === 'wrong') {
+                feedbackDiv.textContent = 'Err! Wrong!';
+                feedbackDiv.className = 'feedback wrong';
+                setTimeout(() => feedbackDiv.style.opacity = "0", 2000);
+            } else if (answer === 'correct') {
+                feedbackDiv.textContent = 'Yay! Correct!';
+                feedbackDiv.className = 'feedback correct';
+            }
+        }
+
+        function minimizeContainer() {
+            document.getElementById('question-container').style.display = 'none';
+            document.getElementById('minimized-container').style.display = 'block';
+        }
+
+        function restoreContainer() {
+            document.getElementById('question-container').style.display = 'block';
+            document.getElementById('minimized-container').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
